@@ -1,32 +1,40 @@
-let rock = "rock";
-let paper = "paper";
-let scissors = "scissors";
-
 function getComputerChoice() {
-  const answer = Math.floor(Math.random() * 3 + 1);
-  if (answer === 3) {
-    return rock;
-  } else if (answer === 2) {
-    return paper;
-  } else {
-    return scissors;
+  const logic = Math.floor(Math.random() * 3 + 1);
+  if (logic === 3) {
+    return "rock";
+  } else if (logic === 2) {
+    return "paper";
+  } else if (logic === 1) {
+    return "scissors";
   }
 }
 
-function getUserChoice() {
+function singleRound(playerSelection, computerSelection) {
   let answer = prompt("Please enter choice");
 
-  let answerLowerCase = answer.toLowerCase();
-  return answerLowerCase.charAt(0).toUpperCase() +answerLowerCase.slice(1);
+  playerSelection = answer.toLowerCase();
+  computerSelection = getComputerChoice();
+
+  if (playerSelection === computerSelection){
+    return "We have a tie";
+  } else if (playerSelection === "rock" && computerSelection === "scissors"){
+    return "Player wins: Rock beats scissors"
+  } else if (playerSelection === "paper" && computerSelection === "rock"){
+    return "Player wins: Paper beats rock"
+  } else if (playerSelection === "scissors" && computerSelection === "paper"){
+    return "Player wins: scissors beats paper"
+  } else if (playerSelection === "rock" && computerSelection === "paper"){
+    return "Computer wins: paper beats rock"
+  } else if (playerSelection === "paper" && computerSelection === "scissors"){
+    return "Computer wins:scissors beat paper"
+  } else if (playerSelection === "scissors" && computerSelection === "rock"){
+    return "Computer wins: rock beats scissors"
+  }
 }
 
-console.log(getUserChoice());
-// rock paper scissor Game
-// !create function user will enter input value of rock, paper or scissors (prompt)
-// create function input value will be case sensitive string.toUpperCase
-// create function computer random values Math.floor(Math.random)
-// create function comparing user/computer value and evaluating winner
-// Have game loop until someone achieves 5 wins (while loop)
-// while (i < 10) {
-// text += "The number is " + i;
-// i++
+console.log(singleRound());
+console.log(singleRound());
+console.log(singleRound());
+console.log(singleRound());
+console.log(singleRound());
+console.log(singleRound());
