@@ -3,14 +3,23 @@ let paper = "paper"
 let scissors ="scissors"
 
 function getComputerChoice(){
-
+const answer = Math.floor(Math.random()*3 + 1);
+  if (answer === 3){
+    return rock; 
+  }  else if (answer === 2){
+    return paper;
+  } else {
+    return scissors;
+  }
 }
+
+
 
 function getUserChoice(){
-
+let answer = prompt("Please enter choice")
+return answer;
 }
 
-function 
 
 
 
