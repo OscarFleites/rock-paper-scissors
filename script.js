@@ -9,32 +9,34 @@ function getComputerChoice() {
   }
 }
 
-function singleRound(playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection) {
   let answer = prompt("Please enter choice");
 
   playerSelection = answer.toLowerCase();
   computerSelection = getComputerChoice();
 
-  if (playerSelection === computerSelection){
+  if (playerSelection === computerSelection) {
     return "We have a tie";
-  } else if (playerSelection === "rock" && computerSelection === "scissors"){
-    return "Player wins: Rock beats scissors"
-  } else if (playerSelection === "paper" && computerSelection === "rock"){
-    return "Player wins: Paper beats rock"
-  } else if (playerSelection === "scissors" && computerSelection === "paper"){
-    return "Player wins: scissors beats paper"
-  } else if (playerSelection === "rock" && computerSelection === "paper"){
-    return "Computer wins: paper beats rock"
-  } else if (playerSelection === "paper" && computerSelection === "scissors"){
-    return "Computer wins:scissors beat paper"
-  } else if (playerSelection === "scissors" && computerSelection === "rock"){
-    return "Computer wins: rock beats scissors"
+  } else if (playerSelection === "rock" && computerSelection === "scissors") {
+    return "Player wins: Rock beats scissors";
+  } else if (playerSelection === "paper" && computerSelection === "rock") {
+    return "Player wins: Paper beats rock";
+  } else if (playerSelection === "scissors" && computerSelection === "paper") {
+    return "Player wins: scissors beats paper";
+  } else if (playerSelection === "rock" && computerSelection === "paper") {
+    return "Computer wins: paper beats rock";
+  } else if (playerSelection === "paper" && computerSelection === "scissors") {
+    return "Computer wins:scissors beat paper";
+  } else if (playerSelection === "scissors" && computerSelection === "rock") {
+    return "Computer wins: rock beats scissors";
   }
 }
 
-console.log(singleRound());
-console.log(singleRound());
-console.log(singleRound());
-console.log(singleRound());
-console.log(singleRound());
-console.log(singleRound());
+function game() {
+  let i = 0;
+  for (let i = 0; i < 5; i++) {
+    console.log(playRound());
+  }
+}
+
+game();
